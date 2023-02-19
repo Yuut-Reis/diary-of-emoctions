@@ -1,0 +1,14 @@
+{
+  "name": "diary_of_emotions",
+  "version": "1.0.0",
+  "description": "app after session",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EletroCP & Yuut",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

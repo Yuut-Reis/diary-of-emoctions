@@ -5,7 +5,7 @@ export default function Welcome() {
     return (
         <View>
             <Text>Diário das emoções</Text>
-            <Text>Welcome</Text>
+            <Text>Welcome  user</Text>
         </View>
     );
 }
