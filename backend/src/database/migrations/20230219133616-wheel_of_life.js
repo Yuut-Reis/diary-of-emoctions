@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
+      user_id: {
         allowNull: false,
         field: 'user_id',
         type: Sequelize.INTEGER,
@@ -23,62 +23,62 @@ module.exports = {
       },
       financas: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'financas'
       },
       amor: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'amor'
       },
       equilibrio: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'equilibrio'
       },
       espiritualidade: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'espiritualidade'
       },
       saude: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'saude'
       },
       familia: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'familia'
       },
-      vidaSocial: {
+      vida_social: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'vida_social'
       },
-      amorProprio: {
+      amor_proprio: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'amor_proprio'
       },
       proposito: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'proposito'
       },
-      resignificacaoTrauma: {
+      resignificacao_trauma: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'resignificacao_trauma'
       },
-      contribuicaoParaHumanidade: {
+      contribuicao_para_humanidade: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'contribuicao_para_humanidade'
       },
       produtividade: {
         allowNull: false,
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         field: 'produtividade'
       },
     },

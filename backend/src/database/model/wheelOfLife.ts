@@ -4,18 +4,18 @@ import User from './users';
 
 class WheelOfLife extends Model {
   id!: number;
-  userId!: number;
+  user_id!: number;
   financas!: number;
   amor!: number;
   equilibrio!: number;
   espiritualidade!: number;
   saude!: number;
   familia!: number;
-  vidaSocial!: number;
-  amorProprio!: number;
+  vida_social!: number;
+  amor_proprio!: number;
   proposito!: number;
-  resignificacaoTrauma!: number;
-  contribuicaoParaHumanidade!: number;
+  resignificacao_trauma!: number;
+  contribuicao_para_humanidade!: number;
   produtividade!: number; 
 }
 WheelOfLife.init({
@@ -25,7 +25,7 @@ WheelOfLife.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
+  user_id: {
     type: INTEGER,
     allowNull: false,
     field: 'user_id',
@@ -36,25 +36,76 @@ WheelOfLife.init({
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE',
   },
-  password: {
-    type: STRING,
-    allowNull: false
-  },
-  role: {
-    type: STRING,
+  financas: {
+    type: INTEGER,
     allowNull: false,
-    field: 'role',
+    field: 'financas',
+  },
+  amor: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'amor',
+  },
+  equilibrio: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'equilibrio',
+  },
+  espiritualidade: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'espiritualidade',
+  },
+  saude: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'saude',
+  },
+  familia: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'familia',
+  },
+  vida_social: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'vida_social',
+  },
+  amor_proprio: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'amor_proprio',
+  },
+  proposito: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'proposito',
+  },
+  resignificacao_trauma: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'resignificacao_trauma',
+  },
+  contribuicao_para_humanidade: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'contribuicao_para_humanidade',
+  },
+  produtividade: {
+    type: INTEGER,
+    allowNull: false,
+    field: 'produtividade',
   },
 }, {
   sequelize: db,
   timestamps: false,
   underscored: true,
-  modelName: 'User',
-  tableName: 'users'
+  modelName: 'WheelOfLife',
+  tableName: 'wheel_of_life'
 })
 
 User.belongsTo(WheelOfLife, {
-    foreignKey: 'id',
-  })
+  foreignKey: 'id',
+})
 
 export default WheelOfLife

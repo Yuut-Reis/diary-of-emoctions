@@ -10,16 +10,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
+      user_id: {
         allowNull: false,
         field: 'user_id',
         type: Sequelize.INTEGER,
         references: {
-          model: 'accounts',
+          model: 'users',
           key: 'id',
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+      },
+      text: {
+        allowNull: false,
+        field: 'text',
+        type: Sequelize.STRING,
+      },
+      img: {
+        allowNull: true,
+        field: 'img',
+        type: Sequelize.STRING,
+      },
+      title: {
+        allowNull: false,
+        field: 'title',
+        type: Sequelize.STRING,
       },
     },
     {

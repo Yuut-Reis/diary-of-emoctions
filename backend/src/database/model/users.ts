@@ -14,7 +14,7 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  username: {
+  name: {
     type: STRING,
     allowNull: false,
   },
@@ -22,19 +22,6 @@ User.init({
     type: STRING,
     allowNull: false
   },
-  /*
-  accountId: {
-    type: INTEGER,
-    allowNull: false,
-    field: 'account_id',
-    references: {
-      model: 'accounts',
-      key: 'id',
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE',
-  },
-  */
   role: {
     type: STRING,
     allowNull: false,
