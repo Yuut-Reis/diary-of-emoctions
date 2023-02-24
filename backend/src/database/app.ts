@@ -1,6 +1,7 @@
 import 'express-async-errors';
 import * as express from 'express';
-import errorMiddlewate from './middlewere/errorMiddleware';
+import errorMiddlewate from './database/middlewere/errorMiddleware';
+import Login from './database/routes/loginRoute';
 
 class App {
   public app: express.Express;
@@ -24,6 +25,8 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
+
+    this.app.use('/login', Login);
 
     this.app.use(errorMiddlewate);
 
