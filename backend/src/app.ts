@@ -1,6 +1,6 @@
 import 'express-async-errors';
 import * as express from 'express';
-import errorMiddlewate from './database/middlewere/errorMiddleware';
+import errorMiddlewate from './database/middleware/errorMiddleware';
 import Login from './database/routes/loginRoute';
 
 class App {

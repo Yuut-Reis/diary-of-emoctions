@@ -9,7 +9,7 @@
     "start": "node ./build/app.js",
     "prestart": "npm run build && npm run db:reset",
     "build": "tsc",
-    "dev": "nodemon --watch \"./src/**\" ./src/database/server.ts"
+    "dev": "nodemon --watch \"./src/**\" ./src/server.ts"
   },
   "keywords": [],
   "author": "",
