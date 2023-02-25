@@ -7,8 +7,10 @@ module.exports = {
      {
       name: 'Breno',
       password: '$2a$10$gkFFM76xlpCn7KP2R.TRy.rqZ3YhjhJP/5Ou8a9OA730PfWmY5y6a', // password: Pass@word3
-      role: "ADM",
-      tags: "ansiedade, evolução profissional",
+      tags: 'ansiedade, evolução profissional',
+      username: 'EletroCP',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImV4cGlyZUluIjoiMzBkIn0.eyJyb2xlIjoiQURNIn0.ANzOJlVv0dZNm4GuZ8nuKj6CYV-90LQnlPObA9XSq78',
+      pronoun: 'Ele/Dele'
      },
 
     ], {});

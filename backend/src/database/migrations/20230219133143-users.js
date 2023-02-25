@@ -15,14 +15,24 @@ module.exports = {
         type: Sequelize.STRING,
         field: 'name'
       },
+      username: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        field: 'username',
+      },
       password: {
         allowNull: false,
         type: Sequelize.STRING,
         field: 'password'
       },
-      role: {
+      token: {
         allowNull: false,
-        field: 'role',
+        field: 'token',
+        type: Sequelize.STRING,
+      },
+      pronoun: {
+        allowNull: false,
+        field: 'pronoun',
         type: Sequelize.STRING,
       },
       tags: {

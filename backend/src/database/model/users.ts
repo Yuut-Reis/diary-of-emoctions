@@ -3,9 +3,10 @@ import db from '.';
 
 class User extends Model {
   id!: number;
-  username!: string;
+  name!: string;
   password!: string;
   accountId!: number;
+  username!: string;
 }
 User.init({
   id: {
@@ -18,14 +19,23 @@ User.init({
     type: STRING,
     allowNull: false,
   },
+  username: {
+    type: STRING,
+    allowNull: false,
+  },
   password: {
     type: STRING,
     allowNull: false
   },
-  role: {
+  token: {
     type: STRING,
     allowNull: false,
-    field: 'role',
+    field: 'token',
+  },
+  pronoun: {
+    type: STRING,
+    allowNull: false,
+    field: 'pronoun',
   },
 }, {
   sequelize: db,
