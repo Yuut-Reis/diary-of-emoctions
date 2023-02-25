@@ -1,10 +1,10 @@
 import User from '../model/users';
 import * as z from 'zod';
 import errorHandler from "../../errorHandler";
-import MiddlewarePassword from "../middleware/middlewarePassword";
-import middlewareJwt from "../middleware/jtwMiddleware";
+import MiddlewarePassword from "../middleware/password";
 
-import { ILoginResgister, IUser } from "../interface/userInterface";
+import { ILogin, IUser } from "../interface/userInterface";
+import Role from '../model/role';
 
 export default class ServiceLogin {
   public model: User;
@@ -13,21 +13,10 @@ export default class ServiceLogin {
     this.model = new User();
   }
 
-  static async bodyValidade(body: ILoginResgister) {
-    const schema = z.object({
-      username: z.string().max(255),
-      password: z.string().min(8).max(255),
-    });
-    try {
-      await schema.parseAsync(body)
-    } catch (err) {
-      errorHandler('validationError', 'All fields must be filled');
-    }
-  };
-
-  static async findUser(body: ILoginResgister): Promise<string> {
+   static async findUser(body: ILogin): Promise<User> {
     const { username, password } = body;
     const user = await User.findOne({
+      raw: true,
       where: { username },
     });
     if(!user) {
@@ -35,21 +24,21 @@ export default class ServiceLogin {
     }
     const dbPass = user ? user.password : 'notFound';
     const validateUser: boolean = MiddlewarePassword.checkPassword(password, dbPass);
+    
+    if (!validateUser) errorHandler('notFoundError', 'Incorrect username or password');
 
-    if (!validateUser) errorHandler('notFoundError', 'User not found');
-
-    const data = user.dataValues.username
+    const data = user
     return data;
   };
 
-  static generateToken(infos: string) {
-    const newToken = middlewareJwt.create(infos);
-    return newToken;
-  };
+  static async getRole(id: number): Promise<string> {
+    const data = await Role.findOne({
+      where: { user_id: id }
+    });
 
-  static decodeToken(token: string): string {
-    const decode = middlewareJwt.tokenDecode(token);
-    const { username } = decode as IUser;
-    return username;
+    if (!data) return errorHandler('notFoundError', 'Incorrect username or password');
+      
+    return data.role
+      
   }
 }
