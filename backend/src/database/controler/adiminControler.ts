@@ -1,7 +1,4 @@
 import { Request, Response } from 'express';
-import ServiceRegister from '../services/registerServices';
-import zodSchemas from '../middleware/zod';
-import User from '../model/users';
 import ServiceUser from '../services/userServices';
 
 export default class ControlerLogin {

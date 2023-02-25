@@ -23,6 +23,7 @@ const middlewareJwt = {
     const token = req.headers.authorization as unknown as string;
     if (!token) errorHandler('unauthorizedError', 'Token not found');
     const { username } = jwt.verify(token, mysecret) as IUser;
+    console.log(token)
     try {
       const findUser = await User.findOne({ where: { username } });
       if (!findUser) return errorHandler('unauthorizedError', 'Expired or invalid token');
@@ -31,7 +32,7 @@ const middlewareJwt = {
       return errorHandler('unauthorizedError', 'Token must be a valid token');
     }
   },
-
+  
   tokenDecode(token: string) {
     try {
       return jwt.decode(token);

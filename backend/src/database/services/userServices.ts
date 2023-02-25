@@ -1,9 +1,4 @@
 import Role from '../model/role';
-import errorHandler from "../../errorHandler";
-import MiddlewarePassword from "../middleware/password";
-
-import { IResgister } from "../interface/userInterface";
-import middlewareJwt from '../middleware/jwt';
 import User from '../model/users';
 
 export default class ServiceUser {
@@ -18,7 +13,7 @@ export default class ServiceUser {
         include: [{
             model: Role,
             required: false,
-            attributes: {exclude: ['id', 'user_id']},
+            attributes: {exclude: ['id']},
         }],
         attributes: {exclude: ['password', 'token']},
     });
