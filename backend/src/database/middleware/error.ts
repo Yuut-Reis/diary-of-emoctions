@@ -14,10 +14,12 @@ const errorMiddlewate = (
   res: Response,
   _next: NextFunction,
 ) => {
+  console.log(message)
   const status = errors[name];
   if (!status) {
     return res.sendStatus(500)
   };
+  console.log(message)
   return res.status(status).json({ message });
 };
 

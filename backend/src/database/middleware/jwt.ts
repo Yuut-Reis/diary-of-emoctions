@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken';
-import { IUser } from '../interface/userInterface';
+import { IResgister, IRole, IUser } from '../interface/userInterface';
 import { Request, Response, NextFunction } from 'express';
 import errorHandler from '../../errorHandler';
 import User from '../model/users';
@@ -7,15 +7,15 @@ import User from '../model/users';
 const { JWT_SECRET } = process.env;
 
 const jwtConfig: jwt.SignOptions = {
-  expiresIn: 86400,
+  expiresIn: '30d',
   algorithm: 'HS256',
 };
 
 const mysecret: jwt.Secret = JWT_SECRET || 'secret';
 
 const middlewareJwt = {
-  create(username: string) {
-    const token = jwt.sign({ username }, mysecret, jwtConfig);
+  create({ username, role }: IUser): string {
+    const token = jwt.sign({ username, role }, mysecret, jwtConfig);
     return token;
   },
 
