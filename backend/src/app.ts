@@ -3,6 +3,7 @@ import * as express from 'express';
 import errorMiddlewate from './database/middleware/error';
 import Login from './database/routes/loginRoute';
 import Register from './database/routes/registerRoute';
+import Adimin from './database/routes/adiminRoute';
 
 class App {
   public app: express.Express;
@@ -29,6 +30,7 @@ class App {
 
     this.app.use('/login', Login);
     this.app.use('/register', Register);
+    this.app.use('/adimin', Adimin);
 
     this.app.use(errorMiddlewate);
 
