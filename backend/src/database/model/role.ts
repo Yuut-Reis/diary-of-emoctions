@@ -1,5 +1,6 @@
 import { Model, INTEGER, STRING } from 'sequelize'
 import db from '.';
+import User from './users';
 
 class Role extends Model {
   id!: number;
@@ -21,7 +22,7 @@ Role.init({
       model: 'users',
       key: 'id',
     }
-    },
+  },
   role: {
     type: STRING,
     allowNull: false
@@ -32,6 +33,10 @@ Role.init({
   underscored: true,
   modelName: 'Role',
   tableName: 'roles'
+});
+
+User.belongsTo(Role, {
+  foreignKey: 'id'
 })
 
 export default Role

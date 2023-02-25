@@ -62,7 +62,7 @@ Post.init({
   tableName: 'posts'
 })
 
-User.belongsTo(Post, {
+User.hasOne(Post, {
   foreignKey: 'id',
 })
 
